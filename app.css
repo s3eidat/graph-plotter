@@ -1,0 +1,34 @@
+.gp-grid { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 14px; align-items: start; }
+@media (max-width: 900px) { .gp-grid { grid-template-columns: minmax(0, 1fr); } }
+.gp-p { margin: 0; line-height: 1.7; }
+div.field { display: grid; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--text-2); }
+
+.gp-fns { display: grid; gap: 8px; }
+.gp-fn { display: grid; grid-template-columns: auto auto minmax(0, 1fr) auto; gap: 6px; align-items: center; }
+.gp-fn .input { min-height: 36px; padding: 7px 10px; font-size: 13.5px; }
+.gp-fn.is-bad .input { border-color: var(--danger); }
+.gp-lab { font-size: 12px; color: var(--text-3); white-space: nowrap; }
+.gp-err { grid-column: 1 / -1; font-size: 12px; color: var(--danger); }
+.gp-err:empty { display: none; }
+.gp-sw { width: 18px; height: 18px; border-radius: 6px; background: var(--c); border: 2px solid var(--c); transition: opacity var(--dur); }
+.gp-sw[aria-pressed="false"] { background: transparent; opacity: .6; }
+
+.gp-sliders { display: grid; gap: 6px; padding-top: 10px; border-top: 1px solid var(--line); }
+.gp-slider { display: grid; grid-template-columns: 18px minmax(0, 1fr) 46px; gap: 10px; align-items: center; font-size: 13px; }
+.gp-slider b { color: var(--accent); font-weight: 700; }
+.gp-slider output { text-align: right; color: var(--text-2); }
+
+.gp-plot { padding: 10px; }
+.gp-canvas-wrap { position: relative; }
+#cv { display: block; width: 100%; height: 470px; border-radius: 12px; touch-action: none; cursor: crosshair; border: 1px solid var(--line); }
+@media (max-width: 600px) { #cv { height: 340px; } }
+.gp-tools { position: absolute; top: 10px; right: 10px; display: grid; gap: 4px; }
+.gp-tools .btn { background: var(--surface-2); font-size: 16px; }
+.gp-bar { padding: 8px 4px 0; }
+#range { font-size: 11.5px; white-space: pre; overflow: hidden; text-overflow: ellipsis; }
+
+.gp-points .empty { padding: 20px 12px; }
+.gp-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 6px; }
+.gp-list li { display: flex; gap: 8px; align-items: center; padding: 7px 10px; border-radius: 9px; background: var(--surface-2); font-size: 13px; }
+.gp-list li i { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.gp-list li b { margin-left: auto; font-weight: 600; font-size: 12.5px; }

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Graph Plotter — Free Online Function Grapher | S3eidat Tools</title>
+<meta name="description" content="Plot y = f(x) functions with colours, sliders for a, b and c, pan and zoom, trace, roots and intersections. Export PNG. Free, private, no sign-up.">
+<meta property="og:title" content="Graph Plotter — free, private function grapher">
+<meta property="og:description" content="Plot functions, find roots and intersections. Runs 100% in your browser.">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="app.css">
+<script src="kit/kit.js"></script>
+<!--s3:seo-->
+<link rel="canonical" href="https://s3eidat.github.io/graph-plotter/">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0d0f12">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="S3eidat Tools">
+<meta property="og:url" content="https://s3eidat.github.io/graph-plotter/">
+<meta property="og:image" content="https://s3eidat.github.io/graph-plotter/screenshot.png">
+<meta property="og:image:width" content="1280"><meta property="og:image:height" content="800">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Graph Plotter — Plot functions and explore graphs">
+<meta name="twitter:description" content="Plot functions and explore graphs. Free, private and runs 100% in your browser: no sign-up, no uploads.">
+<meta name="twitter:image" content="https://s3eidat.github.io/graph-plotter/screenshot.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Graph Plotter", "url": "https://s3eidat.github.io/graph-plotter/", "description": "Plot functions and explore graphs. Free, private and runs 100% in your browser: no sign-up, no uploads.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "image": "https://s3eidat.github.io/graph-plotter/screenshot.png", "author": {"@type": "Person", "name": "s3eidat", "url": "https://github.com/s3eidat"}}</script>
+<!--/s3:seo-->
+</head>
+<body data-tool="graph-plotter">
+<main class="s3-main">
+  <section class="s3-hero">
+    <h1>Graph Plotter</h1>
+    <p>Type functions of x and watch them draw. Drag to pan, scroll or pinch to zoom, hover to trace, and get the roots and intersections in view. Use a, b and c with the sliders to explore.</p>
+  </section>
+
+  <div class="gp-grid">
+    <section class="card stack gp-side">
+      <div class="row between">
+        <h2>Functions</h2>
+        <button class="btn small" type="button" id="addFn"><svg class="i"><use href="#i-plus"/></svg>Add</button>
+      </div>
+      <div id="fns" class="gp-fns"></div>
+      <p class="faint gp-p">Examples: <code>x^2 - 2</code>, <code>2sin(x)</code>, <code>a x^2 + b x + c</code>, <code>sqrt(abs(x))</code>, <code>ln(x)</code>, <code>max(x, 0)</code>. Implicit multiplication works: <code>2(x+1)</code>.</p>
+      <div class="gp-sliders" id="sliders"></div>
+      <div class="field"><span>Angles</span>
+        <div class="seg" id="angle" role="group" aria-label="Angle unit">
+          <button type="button" data-v="rad" aria-pressed="true">Radians</button>
+          <button type="button" data-v="deg" aria-pressed="false">Degrees</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="stack">
+      <section class="card gp-plot">
+        <div class="gp-canvas-wrap">
+          <canvas id="cv" role="img" aria-label="Graph of the functions"></canvas>
+          <div class="gp-tools">
+            <button class="btn icon small" type="button" id="zin" aria-label="Zoom in">+</button>
+            <button class="btn icon small" type="button" id="zout" aria-label="Zoom out">−</button>
+            <button class="btn icon small" type="button" id="home" aria-label="Reset view" title="Reset view"><svg class="i"><use href="#i-refresh"/></svg></button>
+          </div>
+        </div>
+        <div class="row between gp-bar">
+          <span class="faint mono" id="range"></span>
+          <button class="btn small" type="button" id="png"><svg class="i"><use href="#i-download"/></svg>PNG</button>
+        </div>
+      </section>
+      <section class="card">
+        <div class="row between">
+          <h2>Roots and intersections <small>in view</small></h2>
+          <button class="btn ghost small" type="button" id="copyPts"><svg class="i"><use href="#i-copy"/></svg>Copy</button>
+        </div>
+        <div id="points" class="gp-points"></div>
+      </section>
+    </div>
+  </div>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
